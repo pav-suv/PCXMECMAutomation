@@ -1,3 +1,6 @@
+
+
+#bootimage function created
 New-PCXCMBootImage -Path "\\192.168.25.214\Package_Source\OSD\boot_images\x64\boot.PS100067.wim" -Index 1 -Name "Boot Image(x64)" -Description "This boot image is created during setup."
 
 
@@ -15,9 +18,9 @@ New-PCXCMBootImage -Path "\\192.168.25.214\Package_Source\OSD\boot_images\x64\bo
  Mangalore Group
 Start-CMContentDistribution -PackageName "PKG_7zip_2.0.1" -DistributionPointGroupName "Project Britaniya"
 
-Start-CMContentDistribution -PackageName "PKG_7zip_2.0.1" -DistributionPointGroupName "ALL Mangalore DPs"
+Start-CMContentDistribution -PackageName "PKG_7zip_2.0.1" -DistributionPointGroupName "ALL Mangalore DPs" 
 
-
+#function created
 Start-CMContentDistribution
     -BootImageName <String[]>
     [-CollectionName <String[]>]
@@ -43,7 +46,7 @@ Start-CMContentDistribution
 
     Add-CMDistributionPointToGroup -DistributionPointName "CM01.CORP.PCXLAB.COM"  
 #------------------------------------------------------------------------------------------
- #userCollection
+ #userCollection - function created
 
 New-CMUserCollection
     -LimitingCollectionName <String>
@@ -59,9 +62,9 @@ New-CMUserCollection
     New-CMUserCollection -Name "All Users and groups" -LimitingCollectionName "All Users and User Groups"
     #-----------------------------------------------------------------------------------------------------
 Set-CMProgram
-    [-PackageName <String>
-    -ProgramName <String>
-    -SuppressProgramNotification <Boolean>]
+    [-PackageName <String>]
+    [-ProgramName <String>]
+    [-SuppressProgramNotification <Boolean>]
     
 
     #Set-CMProgram -PackageName "PKG_Notepad++_8.9.3" -ProgramName "PKG_Notepad++_8.9.3[INSTALL]" -SuppressProgramNotifications $false

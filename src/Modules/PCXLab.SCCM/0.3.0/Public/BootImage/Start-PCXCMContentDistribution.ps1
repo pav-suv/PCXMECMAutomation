@@ -1,3 +1,39 @@
+function Start-PCXCMContentDistribution{
+    param (
+        [Parameter(Mandatory=$true, Position=0)] 
+        [String]$BootImageName,
+
+        [Parameter(Mandatory=$true, Position=1)] 
+        [String]$DistributionPointGroupName
+    )
+    begin {
+        Write-Host "Welcome to PCXLab automation" -ForegroundColor Yellow
+    }
+    process {
+                try {
+                    Write-Host "Distibution group name : $DistributionPointGroupName" -ForegroundColor Yellow
+                    Start-CMContentDistribution -BootImageName $BootImageName -DistributionPointGroupName $DistributionPointGroupName
+                    Write-Host "Dp group $DistributionPointGroupName is added." -ForegroundColor Green
+                    Write-Host "We tried and successfuly added................."  -ForegroundColor Magenta
+                }
+                catch {
+                    Write-Host $_ -ForegroundColor Red
+                }
+                finally {
+                    <#Do this after the try block regardless of whether an exception occurred or not#>
+                    Write-Host "This is finaly block runs even for success and even for failure" -ForegroundColor Cyan
+                }
+    }
+    end {
+        Write-Host "Thank you - www.pcxlab.com " -ForegroundColor Yellow
+    }
+}
+
+<#
+Ms-Document :
+https://learn.microsoft.com/en-us/powershell/module/configurationmanager/start-cmcontentdistribution?view=sccm-ps
+
+Syntax :
 Start-CMContentDistribution
     -BootImageName <String[]>
     [-CollectionName <String[]>]
@@ -9,4 +45,9 @@ Start-CMContentDistribution
     [-Confirm]
     [<CommonParameters>]
 
-    Start-CMContentDistribution -BootImageName "Boot Image(x64)" -DistributionPointName "CM01.CORP.PCXLAB.COM" -DistributionPointGroupName "ALL Mangalore Group"
+Direct Command:
+    Start-CMContentDistribution -BootImageName "Boot Image(x64)" -DistributionPointGroupName "ALL Mangalore DPs"
+
+Function Usage example:
+    Start-PCXCMContentDistribution -BootImageName "Boot Image(x64)" -DistributionPointGroupName "ALL Mangalore Group"
+#>
