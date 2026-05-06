@@ -7,9 +7,8 @@ function New-PCXCMOperatingSystemImage{
         [String]$Path  
     )
     begin {
-        Write-Host "Welcome to PCXLab automation" -ForegroundColor Yellow
+        Write-PCXMessageBegin
     }
-
     process {
                 try {
                     Write-Host "We are adding OSImage : $Name " -ForegroundColor Yellow
@@ -27,7 +26,7 @@ function New-PCXCMOperatingSystemImage{
                 }
     }
     end {
-        Write-Host "Thank you - www.pcxlab.com " -ForegroundColor Yellow
+        Write-PCXMessageEnd
     }
 }
  

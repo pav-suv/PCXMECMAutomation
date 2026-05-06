@@ -14,7 +14,8 @@ function New-PCXCMBootImage {
         [String]$Description   
     )
     begin {
-        Write-Host "Welcome to PCXLab automation" -ForegroundColor Yellow
+        Message-PCXBegin
+
     }
     process {
                 try {
@@ -32,7 +33,8 @@ function New-PCXCMBootImage {
                 }
     }
     end {
-        Write-Host "Thank you - www.pcxlab.com " -ForegroundColor Yellow
+        Message-PCXEnds
+
     }
 }
 

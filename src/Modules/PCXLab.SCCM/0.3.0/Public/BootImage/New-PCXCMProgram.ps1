@@ -10,7 +10,8 @@ function Set-PCXCMProgram{
         [String]$ProgramNotification
     )
     begin {
-        Write-Host "Welcome to PCXLab automation" -ForegroundColor Yellow
+       Write-PCXMessageBegin
+
     }
     process {
                 try {
@@ -28,7 +29,8 @@ function Set-PCXCMProgram{
                 }
     }
     end {
-        Write-Host "Thank you - www.pcxlab.com " -ForegroundColor Yellow
+        Write-PCXMessageEnd
+
     }
 }
 

@@ -1,32 +1,32 @@
-function New-PCXCMUserCollection{
+function New-PCXCMUserCollection {
     param (
-        [Parameter(Mandatory=$true, Position=0)] 
+        [Parameter(Mandatory = $true, Position = 0)] 
         [String]$Name,
 
-        [Parameter(Mandatory=$true, Position=0)] 
+        [Parameter(Mandatory = $true, Position = 0)] 
         [String]$LimitingCollectionName
     )
     begin {
-        Write-Host "Welcome to PCXLab automation" -ForegroundColor Yellow
+        Write-PCXMessageBegin
     }
-
     process {
-                try {
-                    Write-Host "We are creating new UserCollection : $Name " -ForegroundColor Yellow
-                    New-CMUserCollection -Name $Name -LimitingCollectionName $LimitingCollectionName
-                    Write-Host "UserCollection $Name is created." -ForegroundColor Green
-                    Write-Host "We tried and successfuly created................."  -ForegroundColor Magenta
-                }
-                catch {
-                    Write-Host $_ -ForegroundColor Red
-                }
-                finally {
-                    <#Do this after the try block regardless of whether an exception occurred or not#>
-                    Write-Host "This is finaly block runs even for success and even for failure" -ForegroundColor Cyan
-                }
+        try {
+            Write-Host "We are creating new UserCollection : $Name " -ForegroundColor Yellow
+            New-CMUserCollection -Name $Name -LimitingCollectionName $LimitingCollectionName
+            Write-Host "UserCollection $Name is created." -ForegroundColor Green
+            Write-Host "We tried and successfuly created................."  -ForegroundColor Magenta
+        }
+        catch {
+            Write-Host $_ -ForegroundColor Red
+        }
+        finally {
+            <#Do this after the try block regardless of whether an exception occurred or not#>
+            Write-Host "This is finaly block runs even for success and even for failure" -ForegroundColor Cyan
+        }
     }
     end {
-        Write-Host "Thank you - www.pcxlab.com " -ForegroundColor Yellow
+    
+        Write-PCXMessageEnd
     }
 }
 
